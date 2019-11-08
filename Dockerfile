@@ -7,13 +7,6 @@ RUN apt-get update && apt-get install -y pdftk
 RUN apt-get clean
 
 
-# for creating LaTeX reports
-RUN \
-  apt-get update && apt-get install -y --no-install-recommends \
-    texlive-latex-base \
-    texlive-latex-recommended
-
-
 # Adding common R Packages that aren't in rocker/verse
 RUN R -e "devtools::install_version('pzfx', version = '0.2.0', repos = 'http://cran.us.r-project.org')"
 RUN R -e "devtools::install_version('checkmate', version = '1.9.4', repos = 'http://cran.us.r-project.org')"
