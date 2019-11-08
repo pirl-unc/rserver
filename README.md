@@ -6,13 +6,13 @@ In our cluster environment, the rstudio server often doesn't terminate cleanly. 
 
 ## Building locally
 ```bash
-docker build -t bgvlab/rserver:3.6.1.0 .
+docker build -t benjaminvincentlab/rserver:3.6.1.0 .
 ```
 
 
 ## Running locally
 ```bash
-docker run -e PASSWORD=12qwaszx --rm -p 8787:8787   -v ~/Desktop:/home/rstudio   bgvlab/rserver:3.6.1.0 8787
+docker run -e PASSWORD=12qwaszx --rm -p 8787:8787   -v ~/Desktop:/home/rstudio   benjaminvincentlab/rserver:3.6.1.0 8787
 ```
 
 Then direct browser to localhost:8787.
