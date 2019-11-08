@@ -7,30 +7,11 @@ RUN apt-get update && apt-get install -y pdftk
 RUN apt-get clean
 
 
-# Install tex packages for making interactive reports
-# https://www.tug.org/texlive/doc/tlmgr.html#update-option...-pkg
-# r tips for tmlgr https://yihui.name/tinytex/
-# at the end we update everything after tlmgr installs
-# for help on packages
-#   tlmgr info <mypackage> or
-#   texdoc (-s) <mypackage> on a system with texdoc installed 
-#   (ie with texlive base or full; not with the one used here, tinytex)
+# for creating LaTeX reports
 RUN \
-  tlmgr update --self --all && \
-  tlmgr install \
-    overpic \
-    eepic \
-    media9 \
-    ocgx2 \
-    xcolor \
-    tikzpagenodes \
-    ifoddpage \
-    linegoal \
-    etex-pkg \
-    pgf && \
-  tlmgr update --self --all && \
-  tlmgr path add && \
-  fmtutil-sys --all
+  apt-get update && apt-get install -y --no-install-recommends \
+    texlive-latex-base \
+    texlive-latex-recommended
 
 
 # Adding common R Packages that aren't in rocker/verse
