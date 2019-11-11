@@ -1,7 +1,7 @@
 # Basic RServer for the Vincent Lab  
 
 ## Introduction  
-This environment sets up the basic tools needed for setting up the IDE and R-Packages needed to do analyses and reports for the Vincent Lab.  
+This environment sets up the IDE and R-Packages needed to do analyses and reports for the Vincent Lab.  
 
 
 ## DockerHub link:  
