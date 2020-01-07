@@ -1,0 +1,8 @@
+user: dbortone
+job_id: 1280846
+node: c6145-docker-2-10.local
+node_total_cpu: 64
+node_total_memory: 131834024
+start_time: 2019-10-25T10:20:42
+job_requested_cpu: 4
+job_requested_mem: 16G

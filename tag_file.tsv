@@ -1,0 +1,13 @@
+Tag	Time
+start mclapply	10:38:24
+end mclapply	10:38:26
+start lapply	10:38:26
+end lapply	10:38:28
+start for loop	10:38:28
+end for loop	10:38:29
+start mclapply	10:38:55
+end mclapply	10:39:07
+start lapply	10:39:08
+end lapply	10:39:31
+start for loop	10:39:32
+end for loop	10:41:36

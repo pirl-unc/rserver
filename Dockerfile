@@ -38,9 +38,10 @@ RUN R -e "install.packages(c('pzfx', 'R6', 'checkmate', 'BiocManager', 'cowplot'
 RUN R -e "BiocManager::install('DESeq2')"
 RUN R -e "devtools::install_github('jokergoo/ComplexHeatmap')"
 
+# add xlsx
+RUN R CMD javareconf
+RUN R -e "devtools::install_version('rJava')"
+RUN R -e "devtools::install_version('xlsxjars')"
+RUN R -e "devtools::install_version('xlsx')"
 
 COPY /rserver_handler.sh /rserver_handler.sh
-
-
-ENTRYPOINT ["/rserver_handler.sh"]
-
