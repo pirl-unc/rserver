@@ -71,7 +71,7 @@ rserver --www-port=$my_port &>/dev/null &
 
 # nohup can only run a bash script, not functions, so wee need to export it
 export -f clean_up_if_needed
-# need to have this process start with a different sid a nd pgrp so it doesn get killed by singularity's unstopable sigterm
+# need to have this process start with a different sid and pgrp so it doesn get killed by singularity's unstopable sigterm
 # nohup and disown makes the ppid 1
 # 'set -m : exec' gives it a new pgrp
 (set -m; exec nohup bash -c "clean_up_if_needed ${my_pid} ${my_sid} & disown" &)

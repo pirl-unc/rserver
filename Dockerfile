@@ -1,4 +1,4 @@
-FROM rocker/verse:3.6.1
+FROM rocker/verse:4.0.1
 # OS: Debian GNU/Linux 9 (stretch)
 
 
@@ -36,7 +36,10 @@ RUN \
 # Adding common R Packages that aren't in rocker/verse
 RUN R -e "install.packages(c('pzfx', 'R6', 'checkmate', 'BiocManager', 'cowplot', 'ggrepel', 'pryr'))"
 RUN R -e "BiocManager::install('DESeq2')"
+
 RUN R -e "devtools::install_github('jokergoo/ComplexHeatmap')"
+# For making quality png rasters for ComplexHeatmaps
+RUN apt-get update && apt-get install -y libmagick++-dev
 
 # add xlsx
 RUN R CMD javareconf
