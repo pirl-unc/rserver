@@ -1,4 +1,4 @@
-FROM rocker/verse:4.0.1
+FROM rocker/verse:4.0.2
 # OS: Debian GNU/Linux 9 (stretch)
 
 
@@ -48,3 +48,4 @@ RUN R -e "devtools::install_version('xlsxjars')"
 RUN R -e "devtools::install_version('xlsx')"
 
 COPY /rserver_handler.sh /rserver_handler.sh
+RUN chmod ugo+x /rserver_handler.sh
