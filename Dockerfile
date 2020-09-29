@@ -49,3 +49,14 @@ RUN R -e "devtools::install_version('xlsx')"
 
 COPY /rserver_handler.sh /rserver_handler.sh
 RUN chmod ugo+x /rserver_handler.sh
+
+# there is currently a problem with the version of rstudio on rocker verse which should be fixed by going to an older version of rstudio 
+# https://github.com/rocker-org/rocker-versioned/issues/213
+# https://gist.github.com/snystrom/eca67d993c579c3416cda63590d9080a
+ENV S6_VERSION=v1.21.7.0
+# Changed rstudio version from "latest" TO 1.2.5042
+ENV RSTUDIO_VERSION=1.2.5042
+ENV PATH=/usr/lib/rstudio-server/bin:$PATH
+RUN /rocker_scripts/install_rstudio.sh
+RUN /rocker_scripts/install_pandoc.sh
+EXPOSE 8787
