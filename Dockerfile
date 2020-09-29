@@ -1,4 +1,4 @@
-FROM rocker/verse:4.0.2
+FROM rocker/verse:4.0.0
 # OS: Debian GNU/Linux 9 (stretch)
 
 
@@ -34,7 +34,7 @@ RUN \
 
 
 # Adding common R Packages that aren't in rocker/verse
-RUN R -e "install.packages(c('pzfx', 'R6', 'checkmate', 'BiocManager', 'cowplot', 'ggrepel', 'pryr'))"
+RUN R -e "install.packages(c('pzfx', 'R6', 'checkmate', 'BiocManager', 'cowplot', 'ggrepel', 'pryr', 'viridis'))"
 RUN R -e "BiocManager::install('DESeq2')"
 
 RUN R -e "devtools::install_github('jokergoo/ComplexHeatmap')"
