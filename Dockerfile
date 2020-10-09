@@ -40,6 +40,7 @@ RUN R -e "BiocManager::install('DESeq2')"
 RUN R -e "devtools::install_github('jokergoo/ComplexHeatmap')"
 # For making quality png rasters for ComplexHeatmaps
 RUN apt-get update && apt-get install -y libmagick++-dev
+RUN R -e "install.packages('magick', ref = '2.3')"
 
 # add xlsx
 RUN R CMD javareconf

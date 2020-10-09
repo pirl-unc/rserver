@@ -6,13 +6,13 @@ In our cluster environment, the rstudio server often doesn't terminate cleanly. 
 
 ## Building locally
 ```bash
-docker build -t benjaminvincentlab/rserver:4.0.1.0 .
+docker build -t benjaminvincentlab/rserver:4.0.1.2 .
 ```
 
 
 ## Running locally
 ```bash
-docker run -e PASSWORD=12qwaszx --rm -p 8787:8787 -v ~/Desktop:/home/rstudio benjaminvincentlab/rserver:4.0.1.0 8787
+docker run -e PASSWORD=12qwaszx --rm -p 8787:8787 -v ~/Desktop:/home/rstudio benjaminvincentlab/rserver:4.0.1.2 8787
 ```
 Then direct browser to localhost:8787.  
 
@@ -25,8 +25,8 @@ y is the version of the rserver it uses.
 z is the version of this Dockerfile.  
 ```bash  
 cd /home/dbortone/docker/rserver_binfotron
-my_comment="First version of 4.0"
+my_comment="Added magick r package."
 git add .
 git commit -am "$my_comment"; git push origin master
-git tag -a 4.0.1.0 -m "$my_comment"; git push -u origin --tags
+git tag -a 4.0.1.2 -m "$my_comment"; git push -u origin --tags
 ```
