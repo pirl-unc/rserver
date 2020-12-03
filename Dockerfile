@@ -3,7 +3,7 @@ FROM rocker/verse:4.0.0
 
 
 # For adding metadata to pdfs
-RUN apt-get update && apt-get install -y pdftk
+RUN apt-get update && apt-get install -y pdftk acl
 RUN apt-get clean
 
 
