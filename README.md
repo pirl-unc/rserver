@@ -25,8 +25,9 @@ y is the version of the rserver it uses.
 z is the version of this Dockerfile.  
 ```bash  
 cd /home/dbortone/docker/rserver
-my_comment="Adding acl to see if that works on the cluster."
+my_comment=""
 git add .
 git commit -am "$my_comment"; git push
-git tag -a 4.0.0.3 -m "$my_comment"; git push -u origin --tags
+# skip 4.0.0.3 and go to 4.  3 was to test acl
+git tag -a 4.0.0.2 -m "$my_comment"; git push -u origin --tags 
 ```

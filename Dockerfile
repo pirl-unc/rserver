@@ -1,36 +1,10 @@
-FROM rocker/verse:4.0.0
+FROM rocker/verse:4.0.3
 # OS: Debian GNU/Linux 9 (stretch)
 
 
 # For adding metadata to pdfs
-RUN apt-get update && apt-get install -y pdftk acl
+RUN apt-get update && apt-get install -y pdftk
 RUN apt-get clean
-
-
-# Install tex packages for making interactive reports
-# https://www.tug.org/texlive/doc/tlmgr.html#update-option...-pkg
-# r tips for tmlgr https://yihui.name/tinytex/
-# at the end we update everything after tlmgr installs
-# for help on packages
-#   tlmgr info <mypackage> or
-#   texdoc (-s) <mypackage> on a system with texdoc installed 
-#   (ie with texlive base or full; not with the one used here, tinytex)
-RUN \
-  tlmgr update --self --all && \
-  tlmgr install \
-    overpic \
-    eepic \
-    media9 \
-    ocgx2 \
-    xcolor \
-    tikzpagenodes \
-    ifoddpage \
-    linegoal \
-    etex-pkg \
-    pgf && \
-  tlmgr update --self --all && \
-  tlmgr path add && \
-  fmtutil-sys --all
 
 
 # Adding common R Packages that aren't in rocker/verse
@@ -48,8 +22,6 @@ RUN R -e "devtools::install_version('rJava')"
 RUN R -e "devtools::install_version('xlsxjars')"
 RUN R -e "devtools::install_version('xlsx')"
 
-COPY /rserver_handler.sh /rserver_handler.sh
-RUN chmod ugo+x /rserver_handler.sh
 
 # there is currently a problem with the version of rstudio on rocker verse which should be fixed by going to an older version of rstudio 
 # https://github.com/rocker-org/rocker-versioned/issues/213
@@ -60,4 +32,3 @@ ENV RSTUDIO_VERSION=1.2.5042
 ENV PATH=/usr/lib/rstudio-server/bin:$PATH
 RUN /rocker_scripts/install_rstudio.sh
 RUN /rocker_scripts/install_pandoc.sh
-EXPOSE 8787
