@@ -1,5 +1,7 @@
 # Basic RServer for the Vincent Lab  
 
+* this repo originally resided at https://github.com/rserver , it was moved here on 2/12/2024
+
 ## Introduction  
 This environment sets up the IDE and R-Packages needed to do analyses and reports for the Vincent Lab.  
 
